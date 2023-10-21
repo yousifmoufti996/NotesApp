@@ -1,20 +1,22 @@
-.NET Core 6 RESTful API for Managing User Notes
+# .NET Core 6 RESTful API for Managing User Notes
 
-Introduction
+## Introduction
+
 This RESTful API, built using .NET Core 6, allows users to manage their notes. It provides Create, Read, Update, and Delete (CRUD) operations for notes, and it enforces authentication to protect sensitive actions. This README provides instructions on how to run and test the API.
 
-Prerequisites
+## Prerequisites
+
 Before running the project, ensure you have the following prerequisites:
 
-.NET 6 SDK
-Visual Studio 2022
-Git
+- .NET 6 SDK
+- Visual Studio 2022
+- Git
 
-Getting Started
-Clone the Repository
+## Getting Started
 
-bash
-Copy code
+### Clone the Repository
+
+```bash
 git clone https://github.com/yourusername/your-repo.git
 Navigate to the Project Directory
 
