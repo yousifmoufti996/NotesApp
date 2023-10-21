@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>notesApp.API</name>
+    </assembly>
+    <members>
+        <member name="M:notesApp.API.Controllers.NotesController.AddNote(notesApp.API.Models.DataTransferObject.AddNoteREquest)">
+            <summary>
+              This endpoint requires authentication.
+             </summary>
+             <remarks>
+              A POST methode for creating a new note for this user. 
+             To access this endpoint, include a valid JWT token in the 'Authorization' header as a bearer token.
+             Example: 'Authorization: Bearer your-token-here'
+             </remarks>
+             <response code="200">Returns a Note object
+                     {
+               "id": "241408c7-95a7-4dbd-90e7-ad9b6623b6f1",
+            "title": "i postman",
+                "description": "postman",
+             "dateCreated": "2023-10-21T17:46:01.0840649+03:00",
+            "dateDeleted": null,
+                "dateUpdated": null,
+             "userId": "d126868d-a951-4e34-9cbf-a833ca9acf40",
+                "isDeleted": false,
+             "deletedAt": null
+            }
+             </response>
+             
+             <response code="400">If there is no input  </response>
+               /// <response code="401">If Invalid Token </response>
+             <response code="400">If there is no input  their is mistake in the body If this user does not have account or the distenation account is your account (you cant transfer to yourself)</response>
+             <response code="500">If An error occurred it shows the message</response>
+             <response code="404">If the url is wrong</response>
+        </member>
+        <member name="M:notesApp.API.Controllers.NotesController.GetAllNotes">
+            <summary>
+              This endpoint requires authentication.
+             </summary>
+             <remarks>
+              A GET methode that's returns all the notes for this user. 
+             To access this endpoint, include a valid JWT token in the 'Authorization' header as a bearer token.
+             Example: 'Authorization: Bearer your-token-here'
+             </remarks>
+             <response code="200">Returns a list of Notes object
+                     {[
+               "id": "241408c7-95a7-4dbd-90e7-ad9b6623b6f1",
+            "title": "i postman",
+                "description": "postman",
+             "dateCreated": "2023-10-21T17:46:01.0840649+03:00",
+            "dateDeleted": null,
+                "dateUpdated": null,
+             "userId": "d126868d-a951-4e34-9cbf-a833ca9acf40",
+                "isDeleted": false,
+             "deletedAt": null
+            ]}
+             </response>
+             
+               /// <response code="401">If Invalid Token </response>
+             <response code="500">If An error occurred it shows the message</response>
+             <response code="404">If the url is wrong</response>
+        </member>
+        <member name="M:notesApp.API.Controllers.NotesController.GetNoteById(System.Guid)">
+            <summary>
+              This endpoint requires authentication.
+             </summary>
+             <remarks>
+              A GET methode returns a note for this user by it's id. 
+             To access this endpoint, include a valid JWT token in the 'Authorization' header as a bearer token.
+             Example: 'Authorization: Bearer your-token-here'
+             </remarks>
+             <response code="200">Returns a Note object
+                     {
+               "id": "241408c7-95a7-4dbd-90e7-ad9b6623b6f1",
+            "title": "i postman",
+                "description": "postman",
+             "dateCreated": "2023-10-21T17:46:01.0840649+03:00",
+            "dateDeleted": null,
+                "dateUpdated": null,
+             "userId": "d126868d-a951-4e34-9cbf-a833ca9acf40",
+                "isDeleted": false,
+             "deletedAt": null
+            }
+             </response>
+             
+             <response code="400">If there is no input  or another type</response>
+               /// <response code="401">If Invalid Token Or the requested note is not for the same user</response>
+             <response code="500">If An error occurred it shows the message</response>
+             <response code="404">If the url is wrong Or the requested note is not exist</response>
+        </member>
+        <member name="M:notesApp.API.Controllers.NotesController.UpdateNoteById(System.Guid,notesApp.API.Models.DataTransferObject.UpdateNoteRequest)">
+            <summary>
+              This endpoint requires authentication.
+             </summary>
+             <remarks>
+              A PUT methode for editing a note by id for this user . 
+             To access this endpoint, include a valid JWT token in the 'Authorization' header as a bearer token.
+             Example: 'Authorization: Bearer your-token-here'
+             </remarks>
+             <response code="200">Returns a Note object
+                     {
+               "id": "241408c7-95a7-4dbd-90e7-ad9b6623b6f1",
+            "title": "i postman",
+                "description": "postman",
+             "dateCreated": "2023-10-21T17:46:01.0840649+03:00",
+            "dateDeleted": null,
+                "dateUpdated": null,
+             "userId": "d126868d-a951-4e34-9cbf-a833ca9acf40",
+                "isDeleted": false,
+             "deletedAt": null
+            }
+             </response>
+             
+             <response code="400">If there is no input  </response>
+               /// <response code="401">If Invalid Token </response>
+             <response code="400">If there is no input or their is mistake in the parametar </response>
+             <response code="500">If An error occurred it shows the message</response>
+             <response code="404">If the url is wrong</response>
+        </member>
+        <member name="M:notesApp.API.Controllers.NotesController.DeleteNoteById(System.Guid)">
+            <summary>
+              This endpoint requires authentication.
+             </summary>
+             <remarks>
+              A DELETE methode for deleting a note by id for this user. 
+             To access this endpoint, include a valid JWT token in the 'Authorization' header as a bearer token.
+             Example: 'Authorization: Bearer your-token-here'
+             </remarks>
+             <response code="200">Returns ok succsess message
+             </response>
+             
+             <response code="400">If there is no input  </response>
+               /// <response code="401">If Invalid Token </response>
+             <response code="400">If there is no input or their is mistake in the parametar </response>
+             <response code="500">If An error occurred it shows the message</response>
+             <response code="404">If the url is wrong</response>
+        </member>
+        <member name="M:notesApp.API.Controllers.UserController.Register(notesApp.API.Models.DataTransferObject.RegisterDto)">
+            <remarks>
+             A POST methode for creating a new user (registreation proccess).
+            </remarks>
+            <response code="200">Returns 
+                   {
+                     "succeeded": true,
+                  "errors": []
+                  }
+            </response>
+            <response code="400">If Email or password is missing OR their is mistake in the input </response>
+            <response code="409">If Email already exist (conflict)</response>
+        </member>
+        <member name="M:notesApp.API.Controllers.UserController.Login(notesApp.API.Models.DataTransferObject.LoginDto)">
+            <remarks>
+             A POST methode for logging in and returning a token.
+            </remarks>
+            <response code="200">Returns 
+             {"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZmJjZWRhZDUtMTE5YS00MGY4LThkMGMtNDBiMDVlMzFiODI5IiwibmJmIjoxNjk3ODUxNTc3LCJleHAiOjE2OTc4NTUxNzcsImlhdCI6MTY5Nzg1MTU3NywiaXNzIjoiaXNzdWVyIiwiYXVkIjoiYXVkaWVuY2UifQ.qdK8rLbDdV8TPkQ_mLiI4rH1BiIfTRETSddztaHV7X4"}
+            </response>
+            <response code="400"> if not providding both email and password  OR their is mistake in the input </response>
+            <response code="401"> if Invalid Email or password   OR their is mistake in the input </response>
+            <response code="500">If An error occurred it shows the message</response>
+        </member>
+        <member name="T:notesApp.API.Migrations.InitialMigration">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:notesApp.API.Migrations.secondInitialMigration">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.secondInitialMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.secondInitialMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.secondInitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:notesApp.API.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:notesApp.API.Migrations.adduse">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.adduse.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.adduse.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.adduse.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:notesApp.API.Migrations.InitialIdentity">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:notesApp.API.Migrations.InitialIdentity2">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:notesApp.API.Migrations.InitialIdentity21">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity21.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity21.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity21.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:notesApp.API.Migrations.InitialIdentity211">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity211.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity211.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity211.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:notesApp.API.Migrations.InitialIdentity22">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity22.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity22.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialIdentity22.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:notesApp.API.Migrations.InitialCreate3">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialCreate3.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialCreate3.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:notesApp.API.Migrations.InitialCreate3.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
